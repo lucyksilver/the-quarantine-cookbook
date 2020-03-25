@@ -10,6 +10,5 @@ class RecipesController < ApplicationController
     @remainder_date = Recipe.where(category: "Date Night").last(Recipe.where(category: "Date Night").count - 3)
     @remainder_immune = Recipe.where(category: "Immune System Boost").last(Recipe.where(category: "Immune System Boost").count - 3)
     @remainder_bake = Recipe.where(category: "Procrastinate With Baking").last(Recipe.where(category: "Procrastinate With Baking").count - 3)
-
   end
 end

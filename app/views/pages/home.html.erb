@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>The Quarantine Cookbook</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at justo vitae sem consequat dictum vitae sit amet purus. Aenean sodales placerat ligula, eget maximus velit finibus a. Duis nisl dolor, rhoncus ut elit a, ullamcorper porta enim. Ut viverra, lacus ultrices vulputate scelerisque, velit justo aliquam nisl, ut malesuada leo nisl non diam. Nullam porttitor mi vitae dolor congue interdum. </p>
+<h3>Featured Recipes</h3>
+<% @recipes.sample(5).each do |recipe| %>
+  <% if recipe.photo.attached? %>
+    <%= cl_image_tag recipe.photo.key, height: 300, width: 250, crop: :fill %>
+  <% end %>
+  <p><%= link_to recipe.name, recipe_path(recipe) %></p>
+  <p><%= recipe.description %></p>
+<% end %>
+<%= form_tag recipes_path, method: :get, class: "form-inline" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "What ingredients do you have?"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
