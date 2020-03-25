@@ -20,11 +20,12 @@ user = User.create!(email: "test1@test.com", password:"123123", name: "test")
 p Recipe.first
 p Recipe.last
 
+Recipe.all.each do |recipe|
+  5.times { Ingredient.create!(name: Faker::Food.dish, quantity: Faker::Food.measurement, recipe: recipe) }
+  3.times { Description.create!(steps: Faker::Food.description, recipe: recipe ) }
+end
 
-40.times { Ingredient.create!(name: Faker::Food.dish, quantity: Faker::Food.measurement, recipe: Recipe.order("RANDOM()").first )}
 p Ingredient.first
 p Ingredient.last
-
-40.times { Description.create!(steps: Faker::Food.description, recipe: Recipe.order("RANDOM()").first )}
 p Description.first
 p Description.last
