@@ -16,7 +16,7 @@ Recipe.destroy_all
 
 user = User.create!(email: "test1@test.com", password:"123123", name: "test")
 
-20.times { Recipe.create!(name: Faker::Food.dish, category: CATEGORY.sample, user: user, description: Faker::GreekPhilosophers.quote, time: TIME.sample) }
+200.times { Recipe.create!(name: Faker::Food.dish, category: CATEGORY.sample, user: user, description: Faker::GreekPhilosophers.quote, time: TIME.sample) }
 p Recipe.first
 p Recipe.last
 
