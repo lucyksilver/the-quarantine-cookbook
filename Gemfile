@@ -5,6 +5,7 @@ ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
+gem 'dotenv-rails', groups: [:development, :test]
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -19,6 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
+gem 'cloudinary', '~> 1.12.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
