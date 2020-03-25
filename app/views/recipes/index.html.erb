@@ -1,0 +1,102 @@
+<%= link_to "home", root_path %>
+
+<div id= "top">
+<h2>Jump to:</h2>
+   <ol>
+       <li><a href="#comfort">Home Comforts</a></li>
+       <li><a href="#immune">Boost Your Immune System</a></li>
+       <li><a href="#date">Date Night</a></li>
+       <li><a href="#bake">Procrastinating Baking</a></li>
+   </ol>
+
+</div>
+<div class="container">
+
+<h3>Recipes</h3>
+
+  <div id="comfort">
+    <h2>Home Comforts</h2><p><a href="#top">Back To Top</a></p>
+    <% @comfort_sample.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+    <% end %>
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseComfort" role="button" aria-expanded="false" aria-controls="collapseComfort">
+        View All
+      </a>
+    <div id="collapseComfort" class="collapse">
+      <% @remainder_comfort.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+    <% end %>
+    </div>
+  </div>
+
+   <div id="immune">
+    <h2>Boost Your Immune System</h2><p><a href="#top">Back To Top</a></p>
+    <% @immune_sample.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+      <% end %>
+
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseImmune" role="button" aria-expanded="false" aria-controls="collapseImmune">
+        View All
+      </a>
+    <div id="collapseImmune" class="collapse">
+      <% @remainder_immune.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+      <% end %>
+  </div>
+
+  <div id="date">
+    <h2>Date Night</h2><p><a href="#top">Back To Top</a></p>
+    <% @date_sample.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+    <% end %>
+
+     <a class="btn btn-primary" data-toggle="collapse" href="#collapseDate" role="button" aria-expanded="false" aria-controls="collapseDate">
+        View All
+      </a>
+    <div id="collapseDate" class="collapse">
+      <% @remainder_date.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+    <% end %>
+  </div>
+  </div>
+
+  <div id="bake">
+    <h2>Procrastinate With Baking</h2><p><a href="#top">Back To Top</a></p>
+    <% @bake_sample.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+    <% end %>
+
+     <a class="btn btn-primary" data-toggle="collapse" href="#collapseBake" role="button" aria-expanded="false" aria-controls="collapseBake">
+        View All
+      </a>
+    <div id="collapseBake" class="collapse">
+      <% @remainder_bake.each do |recipe| %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+    <% end %>
+  </div>
+</div>
+</div>
