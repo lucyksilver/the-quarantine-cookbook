@@ -21,7 +21,7 @@ p Recipe.first
 p Recipe.last
 
 Recipe.all.each do |recipe|
-  5.times { Ingredient.create!(name: Faker::Food.dish, quantity: Faker::Food.measurement, recipe: recipe) }
+  5.times { Ingredient.create!(name: Faker::Food.ingredient, quantity: Faker::Food.measurement, recipe: recipe) }
   3.times { Description.create!(steps: Faker::Food.description, recipe: recipe ) }
 end
 
