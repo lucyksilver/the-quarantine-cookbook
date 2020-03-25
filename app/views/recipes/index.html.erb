@@ -1,0 +1,64 @@
+<%= link_to "home", root_path %>
+
+<div id= "top">
+<h2>Jump to:</h2>
+   <ol>
+       <li><a href="#comfort">Home Comforts</a></li>
+       <li><a href="#immune">Boost Your Immune System</a></li>
+       <li><a href="#date">Date Night</a></li>
+       <li><a href="#bake">Procrastinating Baking</a></li>
+   </ol>
+
+</div>
+
+<h3>Recipes</h3>
+
+<div class="container">
+  <div id="comfort">
+    <h2>Home Comforts</h2><p><a href="#top">Back To Top</a></p>
+    <% @recipes.each do |recipe| %>
+    <% if recipe.category == "Home Comforts" %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+   <div id="immune">
+    <h2>Boost Your Immune System</h2><p><a href="#top">Back To Top</a></p>
+    <% @recipes.each do |recipe| %>
+    <% if recipe.category == "Immune System Boost" %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="date">
+    <h2>Date Night</h2><p><a href="#top">Back To Top</a></p>
+    <% @recipes.each do |recipe| %>
+    <% if recipe.category == "Date Night" %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="bake">
+    <h2>Procrastinate With Baking</h2><p><a href="#top">Back To Top</a></p>
+    <% @recipes.each do |recipe| %>
+    <% if recipe.category == "Procrastinate With Baking" %>
+      <p><%= recipe.name %></p>
+      <p><%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p><%= recipe.time %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
