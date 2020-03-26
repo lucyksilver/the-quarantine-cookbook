@@ -16,29 +16,43 @@
 
   <div id="comfort">
     <h2>Home Comforts</h2><p><a href="#top">Back To Top</a></p>
+    <div>
     <% @comfort_sample.each do |recipe| %>
-      <p><%= recipe.name %></p>
-      <p><%= recipe.category %></p>
+      <strong><p><%= recipe.name %></p></strong>
+      <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.quantity %> <%= ingredient.name %>,
+      <% end %>
+      <p>Category: <%= recipe.category %></p>
         <p><%= recipe.level %></p>
-      <p><%= recipe.time %></p>
+      <p>Time: <%= recipe.time %></p>
     <% end %>
       <a class="btn btn-primary" data-toggle="collapse" href="#collapseComfort" role="button" aria-expanded="false" aria-controls="collapseComfort">
         View All
       </a>
     <div id="collapseComfort" class="collapse">
       <% @remainder_comfort.each do |recipe| %>
-      <p><%= recipe.name %></p>
+        <strong><p><%= recipe.name %></p></strong>
+        <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>,
+      <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
       <p><%= recipe.time %></p>
     <% end %>
     </div>
   </div>
+</div>
 
    <div id="immune">
     <h2>Boost Your Immune System</h2><p><a href="#top">Back To Top</a></p>
     <% @immune_sample.each do |recipe| %>
-      <p><%= recipe.name %></p>
+      <strong><p><%= recipe.name %></p></strong>
+        <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>,
+      <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
       <p><%= recipe.time %></p>
@@ -49,7 +63,11 @@
       </a>
     <div id="collapseImmune" class="collapse">
       <% @remainder_immune.each do |recipe| %>
-      <p><%= recipe.name %></p>
+      <strong><p><%= recipe.name %></p></strong>
+        <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>,
+      <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
       <p><%= recipe.time %></p>
@@ -59,7 +77,11 @@
   <div id="date">
     <h2>Date Night</h2><p><a href="#top">Back To Top</a></p>
     <% @date_sample.each do |recipe| %>
-      <p><%= recipe.name %></p>
+      <strong><p><%= recipe.name %></p></strong>
+        <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>,
+      <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
       <p><%= recipe.time %></p>
@@ -70,7 +92,11 @@
       </a>
     <div id="collapseDate" class="collapse">
       <% @remainder_date.each do |recipe| %>
-      <p><%= recipe.name %></p>
+     <strong><p><%= recipe.name %></p></strong>
+        <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>,
+      <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
       <p><%= recipe.time %></p>
@@ -81,7 +107,11 @@
   <div id="bake">
     <h2>Procrastinate With Baking</h2><p><a href="#top">Back To Top</a></p>
     <% @bake_sample.each do |recipe| %>
-      <p><%= recipe.name %></p>
+        <strong><p><%= recipe.name %></p></strong>
+        <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>,
+      <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
       <p><%= recipe.time %></p>
@@ -92,7 +122,11 @@
       </a>
     <div id="collapseBake" class="collapse">
       <% @remainder_bake.each do |recipe| %>
-      <p><%= recipe.name %></p>
+       <strong><p><%= recipe.name %></p></strong>
+        <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.name %>,
+      <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
       <p><%= recipe.time %></p>
