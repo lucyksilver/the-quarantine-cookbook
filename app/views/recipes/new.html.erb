@@ -1,0 +1,15 @@
+<%= simple_form_for @recipe do |r| %>
+  <%= r.input :name %>
+  <%= r.input :description %>
+  <%= r.input :time, collection: @time %>
+  <%= r.input :level, collection: @level %>
+  <%= r.input :category, collection: @category %>
+  <%= r.simple_fields_for :ingredients do |i| %>
+    <%= i.input :name %>
+    <%= i.input :quantity %>
+  <% end %>
+  <%= r.simple_fields_for :steps do |s| %>
+    <%= s.input :instruction %>
+  <% end %>
+  <%= r.button :submit %>
+<% end %>

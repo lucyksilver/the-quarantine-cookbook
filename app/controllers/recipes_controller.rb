@@ -13,6 +13,9 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @category = ["Home Comforts", "Date Night", "Immune System Boost", "Procrastinate With Baking"]
+    @level = ["Easy", "Not Very Difficult", "Ok Slightly More Skill Needed", "Ok This is Big-Man Cooking", "Ainsley Harriot on Steroids"]
+    @time = (10..120).to_a
     @recipe = Recipe.new
     @recipe.ingredients.build
     @recipe.steps.build
@@ -20,6 +23,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    if @recipe.save
+      redirect to :root
+    else
+      render :new
+    end
   end
 
 
