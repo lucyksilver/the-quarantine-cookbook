@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   resources :recipes do
   #   resources :user_recipes, only: [:create]
-  #   resourses :ingredients, only: [:new, :create, :edit, :update]
-  #   resources :descriptions, only: [:new, :create, :edit, :update]
+    resources :ingredients, only: [:new, :create, :edit, :update]
+    resources :steps, only: [:new, :create, :edit, :update]
   end
 
   # resources :user_recipes, only: [:destroy]
-  # resources :ingredients, only: [:destroy]
-  # resources :descriptions, only: [:destroy]
+  resources :ingredients, only: [:destroy]
+  resources :steps, only: [:destroy]
 end
