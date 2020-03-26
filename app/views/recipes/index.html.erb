@@ -21,7 +21,7 @@
       <strong><p><%= recipe.name %></p></strong>
       <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+        <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p>Category: <%= recipe.category %></p>
         <p><%= recipe.level %></p>
