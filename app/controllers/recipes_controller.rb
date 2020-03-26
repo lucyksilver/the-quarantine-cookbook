@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   def index
 
+
       # need if so that it searches through all recipes' ingredients, not in category
       @recipes = Recipe.search_by_ingredient(params[:query])
 
@@ -15,4 +16,22 @@ class RecipesController < ApplicationController
       @remainder_immune = Recipe.where(category: "Immune System Boost").last(Recipe.where(category: "Immune System Boost").count - 3)
       @remainder_bake = Recipe.where(category: "Procrastinate With Baking").last(Recipe.where(category: "Procrastinate With Baking").count - 3)
     end
+
+  def new
+    @recipe = Recipe.new
+    @recipe.ingredients.build
+    @recipe.steps.build
+  end
+
+  def create
+    @recipe = Recipe.new(recipe_params)
+  end
+
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:user_id, :name, :description, :time,
+      :level, :category, ingredients_attributes: [:id, :name, :quantity], steps_attributes: [:id, :instruction])
+  end
 end
