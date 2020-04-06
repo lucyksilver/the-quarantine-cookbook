@@ -10,7 +10,6 @@ CATEGORY = ["Home Comforts", "Date Night", "Immune System Boost", "Procrastinate
 LEVEL = ["Easy", "Not Very Difficult", "Ok Slightly More Skill Needed", "Ok This is Big-Man Cooking", "Ainsley Harriot on Steroids"]
 TIME = (10..120).to_a
 
-Description.destroy_all
 Ingredient.destroy_all
 Recipe.destroy_all
 
@@ -22,10 +21,10 @@ p Recipe.last
 
 Recipe.all.each do |recipe|
   5.times { Ingredient.create!(name: Faker::Food.ingredient, quantity: Faker::Food.measurement, recipe: recipe) }
-  3.times { Description.create!(steps: Faker::Food.description, recipe: recipe ) }
+  # 3.times { Description.create!(steps: Faker::Food.description, recipe: recipe ) }
 end
 
 p Ingredient.first
 p Ingredient.last
-p Description.first
-p Description.last
+# p Description.first
+# p Description.last
