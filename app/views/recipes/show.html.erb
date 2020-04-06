@@ -18,6 +18,9 @@
       <p><%= link_to 'Back to all recipes', recipes_path  %></p>
 
         </div>
+        <div class="user-recipe-form">
+          <%= link_to "Save this recipe", recipe_user_recipes_path(@recipe, @user), method: :post %>
+        </div>
       </div>
   </div>
 </div>

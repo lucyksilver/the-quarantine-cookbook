@@ -1,0 +1,6 @@
+<h2>Your Saved Recipes</h2>
+<% @user_recipes.each do |user_recipe| %>
+<p><strong><%= user_recipe.recipe.name %></strong><br>Category: <%= user_recipe.recipe.category %></p>
+<% end %>
+
+<%= link_to 'Back home', root_path  %>
