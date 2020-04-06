@@ -9,11 +9,32 @@
        <li><a href="#bake">Procrastinating Baking</a></li>
    </ol>
 
+<%= form_tag recipes_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Type an ingredient"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 </div>
 <div class="container">
 
 <h3>Recipes</h3>
 
+<% if params[:query].present? %>
+  <%  @recipes.each do |recipe| %>
+  <strong><p><%= recipe.name %></p></strong>
+      <p>Ingredients:</p>
+      <% recipe.ingredients.each do |ingredient| %>
+        <%= ingredient.quantity %> <%= ingredient.name %>,
+      <% end %>
+      <p>Category: <%= recipe.category %></p>
+        <p><%= recipe.level %></p>
+      <p>Time: <%= recipe.time %></p>
+  <% end %>
+ <% else %>
   <div id="comfort">
     <h2>Home Comforts</h2><p><a href="#top">Back To Top</a></p>
     <div>
@@ -35,7 +56,7 @@
         <strong><p><%= recipe.name %></p></strong>
         <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+        <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
@@ -51,7 +72,7 @@
       <strong><p><%= recipe.name %></p></strong>
         <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+        <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
@@ -66,7 +87,7 @@
       <strong><p><%= recipe.name %></p></strong>
         <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+       <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
@@ -80,7 +101,7 @@
       <strong><p><%= recipe.name %></p></strong>
         <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+        <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
@@ -95,7 +116,7 @@
      <strong><p><%= recipe.name %></p></strong>
         <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+        <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
@@ -110,7 +131,7 @@
         <strong><p><%= recipe.name %></p></strong>
         <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+        <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
@@ -125,7 +146,7 @@
        <strong><p><%= recipe.name %></p></strong>
         <p>Ingredients:</p>
       <% recipe.ingredients.each do |ingredient| %>
-        <%= ingredient.name %>,
+        <%= ingredient.quantity %> <%= ingredient.name %>,
       <% end %>
       <p><%= recipe.category %></p>
         <p><%= recipe.level %></p>
@@ -133,4 +154,5 @@
     <% end %>
   </div>
 </div>
+    <% end %>
 </div>
