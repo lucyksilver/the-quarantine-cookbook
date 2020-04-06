@@ -34,4 +34,8 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:user_id, :name, :description, :time,
       :level, :category, ingredients_attributes: [:id, :name, :quantity], steps_attributes: [:id, :instruction])
   end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 end
