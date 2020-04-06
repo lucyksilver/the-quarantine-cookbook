@@ -11,4 +11,8 @@ class RecipesController < ApplicationController
     @remainder_immune = Recipe.where(category: "Immune System Boost").last(Recipe.where(category: "Immune System Boost").count - 3)
     @remainder_bake = Recipe.where(category: "Procrastinate With Baking").last(Recipe.where(category: "Procrastinate With Baking").count - 3)
   end
+
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 end
