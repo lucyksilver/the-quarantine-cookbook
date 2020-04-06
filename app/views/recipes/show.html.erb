@@ -1,0 +1,23 @@
+<div class="recipe-show-container">
+  <div class="recipe-left-half" style="background-image: url('https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')">
+  </div>
+
+  <div class="recipe-right-half">
+      <div class="content">
+        <div class="recipe-info">
+          <p class="show-header"><%= @recipe.name %></p>
+        </div>
+        <div>
+          <p class="show-description">
+            <p>Category: <%= @recipe.category %></p>
+            <p>Time: <%= @recipe.time %></p></p>
+            <p><%= @recipe.level %></p>
+            <% @recipe.ingredients.each do |ingredient| %>
+              <li><%= ingredient.quantity %> <%= ingredient.name %></li>
+            <% end %>
+      <p><%= link_to 'Back to all recipes', recipes_path  %></p>
+
+        </div>
+      </div>
+  </div>
+</div>
