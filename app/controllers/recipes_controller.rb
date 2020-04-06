@@ -27,6 +27,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
 
   private
 
@@ -35,7 +38,4 @@ class RecipesController < ApplicationController
       :level, :category, ingredients_attributes: [:id, :name, :quantity], steps_attributes: [:id, :instruction])
   end
 
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
 end
