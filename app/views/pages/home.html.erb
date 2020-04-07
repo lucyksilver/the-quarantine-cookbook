@@ -16,3 +16,14 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+
+<div class="form">
+  <%= form_tag recipes_path, method: :get do %>
+          <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Type an ingredient"
+      %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
