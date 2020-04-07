@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @recipes = Recipe.all
+    @recipes_search = Recipe.search_by_ingredient(params[:query])
   end
 end

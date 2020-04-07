@@ -1,4 +1,5 @@
 
+
 <div class= 'banner'>
   <div class='container'>
     <h1 class="text-center">The Quarantine Cookbook</h1>
@@ -31,10 +32,17 @@
         %>
         <= submit_tag "Search", class: "btn btn-primary" %>
       < end %> -->
+      <div class="form">
+  <%= form_tag recipes_path, method: :get do %>
+          <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Type an ingredient"
+      %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
     </div>
     <p class="text-center"><%= link_to "Browse all recipes", recipes_path  %></p>
   </div>
-
-
 </div>
