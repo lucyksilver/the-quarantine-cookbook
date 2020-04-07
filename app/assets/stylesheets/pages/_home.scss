@@ -1,10 +1,14 @@
 // Specific CSS for your home-page
 .banner {
-  background-image: url('spoon.jpg');
+  background-image: url('black.jpg');
   background-size: cover;
   background-position: center;
   height: 700px;
   padding: 160px;
+}
+
+.banner h1, .banner p {
+  color: white;
 }
 
 .featured-recipes {
