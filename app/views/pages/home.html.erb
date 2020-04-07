@@ -1,23 +1,38 @@
-<h1>The Quarantine Cookbook</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at justo vitae sem consequat dictum vitae sit amet purus. Aenean sodales placerat ligula, eget maximus velit finibus a. Duis nisl dolor, rhoncus ut elit a, ullamcorper porta enim. Ut viverra, lacus ultrices vulputate scelerisque, velit justo aliquam nisl, ut malesuada leo nisl non diam. Nullam porttitor mi vitae dolor congue interdum. </p>
-<h3>Featured Recipes</h3>
-<% @recipes.sample(5).each do |recipe| %>
-  <% if recipe.photo.attached? %>
-    <%= cl_image_tag recipe.photo.key, height: 300, width: 250, crop: :fill %>
-  <% end %>
-  <p><%= link_to recipe.name, recipe_path(recipe) %></p>
-  <p><%= recipe.description %></p>
-<% end %>
-<%= form_tag recipes_path, method: :get, class: "form-inline" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "What ingredients do you have?"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
 
-<div class="form">
+
+<div class= 'banner'>
+  <div class='container'>
+    <h1 class="text-center">The Quarantine Cookbook</h1>
+    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</div>
+
+  <div class="container featured-recipes">
+    <h2>
+      Featured Recipes
+    </h2>
+    <div class= 'cards'>
+      <% @recipes.sample(6).each do |recipe| %>
+      <div class="card">
+        <% if recipe.photo.attached? %>
+          <%= cl_image_tag recipe.photo.key, height: 300, width: 250, crop: :fill %>
+        <% end %>
+        <p><%= link_to recipe.name, recipe_path(recipe) %></p>
+        <p>Category: <%= recipe.category %></p>
+          <% recipe.ingredients.each do |ingredient| %>
+            <p><%= ingredient.quantity%><%= ingredient.name %></p>
+          <% end %>
+      </div>
+      <% end %>
+    <!--   <= form_tag recipes_path, method: :get, class: "form-inline" do %>
+        <= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "What ingredients do you have?"
+        %>
+        <= submit_tag "Search", class: "btn btn-primary" %>
+      < end %> -->
+      <div class="form">
   <%= form_tag recipes_path, method: :get do %>
           <%= text_field_tag :query,
         params[:query],
@@ -26,4 +41,8 @@
       %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+
+    </div>
+    <p class="text-center"><%= link_to "Browse all recipes", recipes_path  %></p>
+  </div>
 </div>

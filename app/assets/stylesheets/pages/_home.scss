@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+.banner {
+  background-image: url('black.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+  padding: 160px;
+}
+
+.banner h1, .banner p {
+  color: white;
+}
+
+.featured-recipes {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.card p {
+  margin-bottom: 1px;
+}
