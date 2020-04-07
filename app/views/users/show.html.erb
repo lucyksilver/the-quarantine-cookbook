@@ -1,6 +1,60 @@
-<h2>Your Saved Recipes</h2>
-<% @user_recipes.each do |user_recipe| %>
-<p><strong><%= user_recipe.recipe.name %></strong><br>Category: <%= user_recipe.recipe.category %></p>
-<% end %>
+<div class='container'>
+    <div class='saved-recipes'>
+        <h2>Your Saved Recipes</h2>
+        <% if @user.user_recipes.count > 3 %>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseRecipes" role="button" aria-expanded="false" aria-controls="collapseRecipes">
+            View All</a>
+        <% end %>
+        <div class="recipe-cards">
+            <% @first_user_recipes.each do |user_recipe| %>
+            <div class="recipe-card">
+                <p><strong>
+                        <%= user_recipe.recipe.name %></strong><br>Category:
+                    <%= user_recipe.recipe.category %>
+                </p>
+            </div>
+            <% end %>
+            <% if @user.user_recipes.count > 3 %>
+            <% @remainder_recipes.each do |remainder| %>
+            <div class="recipe-card">
+                <div class="collapse" id="collapseRecipes">
+                    <p><strong>
+                            <%= remainder.recipe.name %></strong><br>Category:
+                        <%= remainder.recipe.category %>
+                    </p>
+                </div>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 
-<%= link_to 'Back home', root_path  %>
+    <div class="uploaded-recipes">
+        <h2>Your Uploaded Recipes</h2>
+        <% if @user.recipes.count > 3 %>
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseUploads" role="button" aria-expanded="false" aria-controls="collapseUploads">
+            View All</a>
+        <% end %>
+        <div class="recipe-cards">
+            <% @first_uploaded.each do |recipe| %>
+            <div class='recipe-card'>
+                <p><strong>
+                        <%= recipe.name %></strong><br>Category:
+                    <%= recipe.category %>
+                </p>
+            </div>
+            <% end %>
+            <% if @user.recipes.count > 3 %>
+            <% @remainder_uploaded.each do |remainder| %>
+            <div class="collapse recipe-card" id="collapseUploads">
+                <p><strong>
+                        <%= remainder.name %></strong><br>Category:
+                    <%= remainder.category %>
+                </p>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <%= link_to 'Back home', root_path  %>
+</div>
